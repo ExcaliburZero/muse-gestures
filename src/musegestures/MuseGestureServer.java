@@ -35,7 +35,8 @@ public class MuseGestureServer implements OscEventListener {
     private final OscP5 museServer;
 
     /**
-     * Initializes a <code>MuseGestureServer</code> with the given port.
+     * Initializes a <code>MuseGestureServer</code> with the given listener
+     * object and port.
      *
      * @param listener The object that will receive the gesture method calls.
      * @param port The port of the Muse oscP5 server.
@@ -69,7 +70,7 @@ public class MuseGestureServer implements OscEventListener {
     /**
      * Sends the received OscMessage to the GestureAnalyzer.
      *
-     * @param msg The OscMessage received.
+     * @param msg The OscMessage to be sent to the GestureAnalyzer.
      */
     @Override
     public void oscEvent(OscMessage msg) {

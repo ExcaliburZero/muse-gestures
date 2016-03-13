@@ -20,7 +20,7 @@ import oscP5.OscMessage;
 
 /**
  * The <code>GestureAnalyzer</code> class is used to analyze oscP5 messages in
- * order to determine when certain gestures a performed.
+ * order to determine when certain gestures are performed.
  *
  * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
