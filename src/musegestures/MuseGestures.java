@@ -23,7 +23,7 @@ package musegestures;
  * Each of the gesture methods defined are called when the corresponding gesture
  * is performed.
  *
- * @author Christopher Wells <cwellsny@nycap.rr.com>
+ * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
 public interface MuseGestures {
 

@@ -20,7 +20,7 @@ package musegestures;
  * The <code>MuseGesture</code> enum is used to define the various different
  * Muse gestures that can be analyzed.
  *
- * @author Christopher Wells <cwellsny@nycap.rr.com>
+ * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
 public enum MuseGesture {
     /**
