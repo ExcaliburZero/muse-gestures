@@ -31,6 +31,7 @@ public class MuseGestureServer implements OscEventListener {
     private MuseGestures listener;
     private final int port;
 
+    private final GestureAnalyzer gestureAnalyzer;
     private final OscP5 museServer;
 
     /**
@@ -42,6 +43,7 @@ public class MuseGestureServer implements OscEventListener {
     public MuseGestureServer(MuseGestures listener, int port) {
         this.listener = listener;
         this.port = port;
+        this.gestureAnalyzer = new GestureAnalyzer();
         this.museServer = new OscP5(this, port);
     }
 
@@ -64,8 +66,14 @@ public class MuseGestureServer implements OscEventListener {
         return this.listener;
     }
 
+    /**
+     * Sends the received OscMessage to the GestureAnalyzer.
+     *
+     * @param msg The OscMessage received.
+     */
+    @Override
     public void oscEvent(OscMessage msg) {
-
+        this.gestureAnalyzer.analyzeMessage(msg);
     }
 
 }
