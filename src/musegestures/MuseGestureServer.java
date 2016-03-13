@@ -76,4 +76,20 @@ public class MuseGestureServer implements OscEventListener {
         this.gestureAnalyzer.analyzeMessage(msg);
     }
 
+    /**
+     * Forwards the received gesture to the listener object.
+     *
+     * @param gesture The gesture to forward to the listener.
+     */
+    public void onGesture(MuseGesture gesture) {
+        switch (gesture) {
+            case BLINK:
+                this.listener.onBlink();
+                break;
+            case JAW_CLENCH:
+                this.listener.onJawClench();
+                break;
+        }
+    }
+
 }
