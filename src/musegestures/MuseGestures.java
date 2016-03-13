@@ -17,27 +17,29 @@
 package musegestures;
 
 /**
- * The <code>MuseGestures</code> class is used to create classes that have
+ * The <code>MuseGestures</code> interface is used to create classes that have
  * handling for different Muse gestures.
  * <br><br>
  * Each of the gesture methods defined are called when the corresponding gesture
  * is performed.
+ * <br><br>
+ * By default, all of the gesture methods have no functionality, however they
+ * should be overridden in the implementing class in order to give them the
+ * wanted functionality.
  *
  * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
-public abstract class MuseGestures {
+public interface MuseGestures {
 
     /**
      * Runs when a blink is performed.
      */
-    public void onBlink() {
-
+    public default void onBlink() {
     }
 
     /**
      * Runs when a jaw clench is performed.
      */
-    public void onJawClench() {
-
+    public default void onJawClench() {
     }
 }

@@ -22,7 +22,7 @@ import oscP5.OscP5;
 
 /**
  * The <code>MuseGestureServer</code> class is used to run methods on objects
- * that extend MuseGestures, whenever an action is performed.
+ * that implement MuseGestures, whenever an action is performed.
  *
  * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
