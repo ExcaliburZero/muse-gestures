@@ -1,6 +1,11 @@
 # muse-gestures
 Muse Gestures is a Java library for handing Muse gestures.
 
+## Documentation
+A copy of the documentation for Muse Gestures is available from the following page. It is manually updated, so it may occasionally be out of date. In order to make sure you have the most up to date version of the documentation you can [compile the documentation from source](#generating-documentation).
+
+* https://excaliburzero.github.io/muse-gestures/
+
 ## Development
 The following sections contain information reguarding the development of Muse Gestures.
 
