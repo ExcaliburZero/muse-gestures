@@ -1,5 +1,24 @@
-# muse-gestures
-Muse Gestures is a Java library for handing Muse gestures.
+# Muse Gestures
+Muse Gestures is a Java library for handing Muse gestures. It includes an interface and server class which allow you to create classes which will automatically have certain methods called when Muse gestures are performed.
+
+```
+public class MuseCar implements MuseGestures {
+
+	public MuseCar() {
+		int port = 5000;
+		MuseGestureServer server = new MuseGestureServer(this, port);
+	}
+
+	public void onBlink() {
+		System.out.println("Flash lights!")
+	}
+
+	public void onJawClench() {
+		this.goForward();
+	}
+
+}
+```
 
 ## Documentation
 A copy of the documentation for Muse Gestures is available from the following page. It is manually updated, so it may occasionally be out of date. In order to make sure you have the most up to date version of the documentation you can [compile the documentation from source](#generating-documentation).
