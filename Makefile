@@ -6,7 +6,7 @@ help:
 	@echo ""
 
 jar:
-	ant jar
+	gradle jar
 
 doc:
-	ant javadoc
+	gradle javadoc
