@@ -17,6 +17,7 @@
 package musegestures;
 
 import oscP5.OscMessage;
+import static musegestures.MuseGesture.*;
 
 /**
  * The <code>GestureAnalyzer</code> class is used to analyze oscP5 messages in
@@ -26,6 +27,18 @@ import oscP5.OscMessage;
  */
 public class GestureAnalyzer {
 
+    private MuseGestureServer server;
+
+    /**
+     * Initializes a <code>GestureAnalyzer</code> object with the given
+     * MuseGestureServer.
+     *
+     * @param server The server of the GestureAnalyzer.
+     */
+    public GestureAnalyzer(MuseGestureServer server) {
+        this.server = server;
+    }
+
     /**
      * Analyzes the given OscMessage in order to determine if any gesture was
      * performed.
@@ -33,7 +46,18 @@ public class GestureAnalyzer {
      * @param msg The message to be analyzed.
      */
     public void analyzeMessage(OscMessage msg) {
-
+        switch(msg.getAddress()) {
+            case "/muse/elements/blink":
+                if (msg.get(0).intValue() == 1) {
+                    this.server.onGesture(BLINK);
+                }
+                break;
+            case "/muse/elements/jaw_clench":
+                if (msg.get(0).intValue() == 1) {
+                    this.server.onGesture(JAW_CLENCH);
+                }
+                break;
+        }
     }
 
 }

@@ -44,7 +44,7 @@ public class MuseGestureServer implements OscEventListener {
     public MuseGestureServer(MuseGestures listener, int port) {
         this.listener = listener;
         this.port = port;
-        this.gestureAnalyzer = new GestureAnalyzer();
+        this.gestureAnalyzer = new GestureAnalyzer(this);
         this.museServer = new OscP5(this, port);
     }
 
