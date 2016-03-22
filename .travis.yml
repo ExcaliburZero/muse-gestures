@@ -4,3 +4,5 @@ jdk:
 script:
   - gradle jar
   - gradle javadoc
+after_success:
+  - gradle test jacocoTestReport coveralls
