@@ -7,6 +7,7 @@ public class MuseCar implements MuseGestures {
 	public MuseCar() {
 		int port = 5000;
 		MuseGestureServer server = new MuseGestureServer(this, port);
+		server.start();
 	}
 
 	public void onBlink() {
