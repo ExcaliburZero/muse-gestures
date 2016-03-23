@@ -1,4 +1,4 @@
-# Muse Gestures
+# Muse Gestures [![Travis CI Status](https://api.travis-ci.org/ExcaliburZero/muse-gestures.svg)](https://travis-ci.org/ExcaliburZero/muse-gestures) [![Coverage Status](https://coveralls.io/repos/github/ExcaliburZero/muse-gestures/badge.svg?branch=master)](https://coveralls.io/github/ExcaliburZero/muse-gestures?branch=master)
 Muse Gestures is a Java library used for recognizing specific gestures using a Muse headband. It includes an interface and server class which allow you to create classes which will automatically have certain methods called when gestures are performed.
 
 ```
