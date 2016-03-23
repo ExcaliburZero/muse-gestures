@@ -26,19 +26,22 @@ import static org.junit.Assert.*;
 public class MuseGestureServerTest {
 
     /**
-     * Runs test of the constructor, start, and stop methods of the <code>
-     * MuseGestureServer</code> class.
+     * Runs test of the constructor, start, stop, and isRunning methods of the
+     * <code>MuseGestureServer</code> class.
      */
     @Test
     public void constructorTest() {
         MuseGesturesImplementation testObj = new MuseGesturesImplementation();
         MuseGestureServer server = new MuseGestureServer(testObj, 5000);
 
+        assertFalse(server.isRunning());
         assertTrue(server.start());
         assertFalse(server.start());
+        assertTrue(server.isRunning());
 
         assertTrue(server.stop());
         assertFalse(server.stop());
+        assertFalse(server.isRunning());
     }
 
     /**

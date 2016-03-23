@@ -33,6 +33,7 @@ public class MuseGestureServer implements OscEventListener {
 
     private final GestureAnalyzer gestureAnalyzer;
     private OscP5 museServer;
+    private boolean running;
 
     /**
      * Initializes a <code>MuseGestureServer</code> with the given listener
@@ -46,6 +47,7 @@ public class MuseGestureServer implements OscEventListener {
         this.port = port;
         this.gestureAnalyzer = new GestureAnalyzer(this);
         this.museServer = null;
+        this.running = false;
     }
 
     /**
@@ -55,8 +57,9 @@ public class MuseGestureServer implements OscEventListener {
      * false</code> if it failed to start.
      */
     public boolean start() {
-        if (this.museServer == null) {
+        if (!this.running) {
             this.museServer = new OscP5(this, port);
+            this.running = true;
 	        return true;
 	    }
 	    return false;
@@ -69,11 +72,22 @@ public class MuseGestureServer implements OscEventListener {
      * false</code> if it failed to stop.
      */
     public boolean stop() {
-        if (this.museServer != null) {
+        if (this.running) {
             this.museServer = null;
+            this.running = false;
             return true;
         }
         return false;
+    }
+
+    /**
+     * Returns whether or not the MuseGestureServer is running.
+     *
+     * @return <code>true</code> if the MuseGestureServer is running, or <code>
+     * false</code> if it is not.
+     */
+    public boolean isRunning() {
+        return this.running;
     }
 
     /**
