@@ -40,4 +40,20 @@ public class MuseGestureServerTest {
         assertTrue(server.stop());
         assertFalse(server.stop());
     }
+
+    /**
+     * Runs tests of the setListener and getListener methods of the <code>
+     * MuseGestureServer</code> class.
+     */
+    @Test
+    public void listenerMethodsTest() {
+        MuseGesturesImplementation testObj = new MuseGesturesImplementation();
+        MuseGestureServer server = new MuseGestureServer(testObj, 5000);
+
+        assertEquals(testObj, server.getListener());
+
+        MuseGesturesImplementation testObj2 = new MuseGesturesImplementation();
+        server.setListener(testObj2);
+        assertEquals(testObj2, server.getListener());
+    }
 }
