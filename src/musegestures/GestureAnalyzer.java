@@ -16,6 +16,7 @@
  */
 package musegestures;
 
+import java.util.ArrayList;
 import oscP5.OscMessage;
 import static musegestures.MuseGesture.*;
 
@@ -40,24 +41,43 @@ public class GestureAnalyzer {
     }
 
     /**
-     * Analyzes the given OscMessage in order to determine if any gesture was
-     * performed.
+     * Sends any gestures that are performed in the given OscMessage to the
+     * MuseGestureServer.
      *
      * @param msg The message to be analyzed.
      */
     public void analyzeMessage(OscMessage msg) {
+        ArrayList<MuseGesture> gestures = getGestures(msg);
+
+        for (MuseGesture gesture : gestures) {
+            this.server.onGesture(gesture);
+        }
+    }
+
+    /**
+     * Analyzes the given OscMessage and returns a list of all of the performed
+     * gestures.
+     *
+     * @param msg The message to be analyzed.
+     * @return A list of the analyzed gestures.
+     */
+    public ArrayList<MuseGesture> getGestures(OscMessage msg) {
+        ArrayList<MuseGesture> gestures = new ArrayList<>();
+
         switch(msg.getAddress()) {
             case "/muse/elements/blink":
                 if (msg.get(0).intValue() == 1) {
-                    this.server.onGesture(BLINK);
+                    gestures.add(BLINK);
                 }
                 break;
             case "/muse/elements/jaw_clench":
                 if (msg.get(0).intValue() == 1) {
-                    this.server.onGesture(JAW_CLENCH);
+                    gestures.add(JAW_CLENCH);
                 }
                 break;
         }
+
+        return gestures;
     }
 
 }
