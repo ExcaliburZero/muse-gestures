@@ -17,19 +17,19 @@
 package musegestures;
 
 /**
- * The <code>JawClenchMachine</code> is used to handle recognition of jaw
- * clench gestures.
+ * The <code>PlateauMachine</code> is used to handle recognition of gestures
+ * which follow a plataeu signal pattern.
  *
  * @author Christopher Wells {@literal <cwellsny@nycap.rr.com>}
  */
-public class JawClenchMachine {
+public class PlateauMachine {
 
     private boolean state;
 
     /**
-     * Instantiates an object of the <code>JawClenchMachine</code> class.
+     * Instantiates an object of the <code>PlateauMachine</code> class.
      */
-    public JawClenchMachine(){
+    public PlateauMachine(){
         this.state = false;
     }
 

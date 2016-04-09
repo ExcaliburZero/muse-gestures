@@ -29,7 +29,8 @@ import static musegestures.MuseGesture.*;
 public class GestureAnalyzer {
 
     private MuseGestureServer server;
-    private JawClenchMachine jawClenchMachine;
+    private PlateauMachine blinkMachine;
+    private PlateauMachine jawClenchMachine;
 
     /**
      * Initializes a <code>GestureAnalyzer</code> object with the given
@@ -39,7 +40,8 @@ public class GestureAnalyzer {
      */
     public GestureAnalyzer(MuseGestureServer server) {
         this.server = server;
-        this.jawClenchMachine = new JawClenchMachine();
+        this.blinkMachine = new PlateauMachine();
+        this.jawClenchMachine = new PlateauMachine();
     }
 
     /**
@@ -68,13 +70,14 @@ public class GestureAnalyzer {
 
         switch(msg.getAddress()) {
             case "/muse/elements/blink":
-                if (msg.get(0).intValue() == 1) {
+                int blinkValue = msg.get(0).intValue();
+                if (this.blinkMachine.move(blinkValue)) {
                     gestures.add(BLINK);
                 }
                 break;
             case "/muse/elements/jaw_clench":
-                int value = msg.get(0).intValue();
-                if (this.jawClenchMachine.move(value)) {
+                int jawClenchValue = msg.get(0).intValue();
+                if (this.jawClenchMachine.move(jawClenchValue)) {
                     gestures.add(JAW_CLENCH);
                 }
                 break;
