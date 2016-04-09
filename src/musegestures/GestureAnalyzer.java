@@ -29,6 +29,7 @@ import static musegestures.MuseGesture.*;
 public class GestureAnalyzer {
 
     private MuseGestureServer server;
+    private JawClenchMachine jawClenchMachine;
 
     /**
      * Initializes a <code>GestureAnalyzer</code> object with the given
@@ -38,6 +39,7 @@ public class GestureAnalyzer {
      */
     public GestureAnalyzer(MuseGestureServer server) {
         this.server = server;
+        this.jawClenchMachine = new JawClenchMachine();
     }
 
     /**
@@ -71,7 +73,8 @@ public class GestureAnalyzer {
                 }
                 break;
             case "/muse/elements/jaw_clench":
-                if (msg.get(0).intValue() == 1) {
+                int value = msg.get(0).intValue();
+                if (this.jawClenchMachine.move(value)) {
                     gestures.add(JAW_CLENCH);
                 }
                 break;

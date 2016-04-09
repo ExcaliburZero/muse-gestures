@@ -49,10 +49,22 @@ public class GestureAnalyzerTest {
     public void testJawClench() {
         MuseGesture expectedGesture = MuseGesture.JAW_CLENCH;
         GestureAnalyzer gestureAnalyzer = new GestureAnalyzer(null);
-        OscMessage oscMessage = new OscMessage("/muse/elements/jaw_clench", 1);
+        OscMessage oscMessage = new OscMessage("/muse/elements/jaw_clench", 0);
+        OscMessage oscMessage2 = new OscMessage("/muse/elements/jaw_clench", 1);
+        OscMessage oscMessage3 = new OscMessage("/muse/elements/jaw_clench", 1);
+        OscMessage oscMessage4 = new OscMessage("/muse/elements/jaw_clench", 1);
+        OscMessage oscMessage5 = new OscMessage("/muse/elements/jaw_clench", 0);
 
         ArrayList<MuseGesture> gestures = gestureAnalyzer.getGestures(oscMessage);
+        ArrayList<MuseGesture> gestures2 = gestureAnalyzer.getGestures(oscMessage2);
+        ArrayList<MuseGesture> gestures3 = gestureAnalyzer.getGestures(oscMessage3);
+        ArrayList<MuseGesture> gestures4 = gestureAnalyzer.getGestures(oscMessage4);
+        ArrayList<MuseGesture> gestures5 = gestureAnalyzer.getGestures(oscMessage5);
 
-        assertTrue(gestures.contains(expectedGesture));
+        assertFalse(gestures.contains(expectedGesture));
+        assertTrue(gestures2.contains(expectedGesture));
+        assertFalse(gestures3.contains(expectedGesture));
+        assertFalse(gestures4.contains(expectedGesture));
+        assertFalse(gestures5.contains(expectedGesture));
     }
 }
