@@ -27,8 +27,29 @@ public enum MuseGesture {
      * When the user blinks.
      */
     BLINK,
+
     /**
      * When the user clenches their jaw.
      */
     JAW_CLENCH,
+
+    /**
+     * When the user's concentration is very low.
+     */
+    CONCENTRATION_0,
+
+    /**
+     * When the user's concentration is low.
+     */
+    CONCENTRATION_1,
+
+    /**
+     * When the user's concentration is medium.
+     */
+    CONCENTRATION_2,
+
+    /**
+     * When the user's concentration is high.
+     */
+    CONCENTRATION_3,
 }

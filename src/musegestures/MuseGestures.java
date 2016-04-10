@@ -42,4 +42,12 @@ public interface MuseGestures {
      */
     public default void onJawClench() {
     }
+
+    /**
+     * Runs when the concentration state changes.
+     *
+     * @param state The new concentration state measured.
+     */
+    public default void onConcentrationChange(int state) {
+    }
 }

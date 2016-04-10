@@ -82,4 +82,44 @@ public class GestureAnalyzerTest {
         assertFalse(gestures4.contains(expectedGesture));
         assertFalse(gestures5.contains(expectedGesture));
     }
+
+    /**
+     * Test of the analysis of the Concentration gestures.
+     */
+    @Test
+    public void testConcentration() {
+        MuseGesture expectedGesture = MuseGesture.CONCENTRATION_1;
+        GestureAnalyzer gestureAnalyzer = new GestureAnalyzer(null);
+        OscMessage oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.30);
+
+        ArrayList<MuseGesture> gestures = gestureAnalyzer.getGestures(oscMessage);
+
+        assertTrue(gestures.contains(expectedGesture));
+
+        expectedGesture = MuseGesture.CONCENTRATION_0;
+        oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.10);
+        gestures = gestureAnalyzer.getGestures(oscMessage);
+        assertTrue(gestures.contains(expectedGesture));
+
+        expectedGesture = MuseGesture.CONCENTRATION_2;
+        oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.60);
+        gestures = gestureAnalyzer.getGestures(oscMessage);
+        assertTrue(gestures.contains(expectedGesture));
+
+        expectedGesture = MuseGesture.CONCENTRATION_3;
+        oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.80);
+        gestures = gestureAnalyzer.getGestures(oscMessage);
+        assertTrue(gestures.contains(expectedGesture));
+
+        expectedGesture = MuseGesture.CONCENTRATION_0;
+        oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.10);
+        gestures = gestureAnalyzer.getGestures(oscMessage);
+        assertTrue(gestures.contains(expectedGesture));
+
+        // Same state twice in a row
+        expectedGesture = MuseGesture.CONCENTRATION_0;
+        oscMessage = new OscMessage("/muse/elements/experimental/concentration", (float) 0.10);
+        gestures = gestureAnalyzer.getGestures(oscMessage);
+        assertFalse(gestures.contains(expectedGesture));
+    }
 }

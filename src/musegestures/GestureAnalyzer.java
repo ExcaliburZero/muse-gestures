@@ -31,6 +31,7 @@ public class GestureAnalyzer {
     private MuseGestureServer server;
     private PlateauMachine blinkMachine;
     private PlateauMachine jawClenchMachine;
+    private ConcentrationMachine concentrationMachine;
 
     /**
      * Initializes a <code>GestureAnalyzer</code> object with the given
@@ -42,6 +43,7 @@ public class GestureAnalyzer {
         this.server = server;
         this.blinkMachine = new PlateauMachine();
         this.jawClenchMachine = new PlateauMachine();
+        this.concentrationMachine = new ConcentrationMachine();
     }
 
     /**
@@ -79,6 +81,13 @@ public class GestureAnalyzer {
                 int jawClenchValue = msg.get(0).intValue();
                 if (this.jawClenchMachine.move(jawClenchValue)) {
                     gestures.add(JAW_CLENCH);
+                }
+                break;
+            case "/muse/elements/experimental/concentration":
+                float concentrationValue = msg.get(0).floatValue();
+                MuseGesture concentrationGesture = this.concentrationMachine.move(concentrationValue);
+                if (concentrationGesture != null) {
+                    gestures.add(concentrationGesture);
                 }
                 break;
         }

@@ -60,9 +60,9 @@ public class MuseGestureServer implements OscEventListener {
         if (!this.running) {
             this.museServer = new OscP5(this, port);
             this.running = true;
-	        return true;
-	    }
-	    return false;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -131,6 +131,18 @@ public class MuseGestureServer implements OscEventListener {
                 break;
             case JAW_CLENCH:
                 this.listener.onJawClench();
+                break;
+            case CONCENTRATION_0:
+                this.listener.onConcentrationChange(0);
+                break;
+            case CONCENTRATION_1:
+                this.listener.onConcentrationChange(1);
+                break;
+            case CONCENTRATION_2:
+                this.listener.onConcentrationChange(2);
+                break;
+            case CONCENTRATION_3:
+                this.listener.onConcentrationChange(3);
                 break;
         }
     }
