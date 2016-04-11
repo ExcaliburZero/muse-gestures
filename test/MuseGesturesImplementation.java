@@ -21,4 +21,69 @@ package musegestures;
  * of the MuseGestures interface used for testing the library.
  */
 public class MuseGesturesImplementation implements MuseGestures {
+
+    private int blinks;
+    private int jawClenches;
+    private int concentrationZeros;
+    private int concentrationOnes;
+    private int concentrationTwos;
+    private int concentrationThrees;
+
+    public MuseGesturesImplementation() {
+        this.blinks = 0;
+        this.jawClenches = 0;
+        this.concentrationZeros = 0;
+        this.concentrationOnes = 0;
+        this.concentrationTwos = 0;
+        this.concentrationThrees = 0;
+    }
+
+    public int getBlinks() {
+        return this.blinks;
+    }
+
+    public int getJawClenches() {
+        return this.jawClenches;
+    }
+
+    public int getConcentrationZeros() {
+        return this.concentrationZeros;
+    }
+
+    public int getConcentrationOnes() {
+        return this.concentrationOnes;
+    }
+
+    public int getConcentrationTwos() {
+        return this.concentrationTwos;
+    }
+
+    public int getConcentrationThrees() {
+        return this.concentrationThrees;
+    }
+
+    public void onBlink() {
+        this.blinks++;
+    }
+
+    public void onJawClench() {
+        this.jawClenches++;
+    }
+
+    public void onConcentrationChange(int state) {
+        switch (state) {
+            case 0:
+                this.concentrationZeros++;
+                break;
+            case 1:
+                this.concentrationOnes++;
+                break;
+            case 2:
+                this.concentrationTwos++;
+                break;
+            case 3:
+                this.concentrationThrees++;
+                break;
+        }
+    }
 }

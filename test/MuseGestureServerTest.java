@@ -19,6 +19,8 @@ package musegestures;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import oscP5.OscMessage;
+
 /**
  * The <code>MuseGestureServerTest</code> class contains tests of the <code>
  * MuseGestureServer</code> class.
@@ -31,7 +33,7 @@ public class MuseGestureServerTest {
      */
     @Test
     public void constructorTest() {
-        MuseGesturesImplementation testObj = new MuseGesturesImplementation();
+        MuseGesturesDefault testObj = new MuseGesturesDefault();
         MuseGestureServer server = new MuseGestureServer(testObj, 5000);
 
         assertFalse(server.isRunning());
@@ -50,13 +52,63 @@ public class MuseGestureServerTest {
      */
     @Test
     public void listenerMethodsTest() {
-        MuseGesturesImplementation testObj = new MuseGesturesImplementation();
+        MuseGesturesDefault testObj = new MuseGesturesDefault();
         MuseGestureServer server = new MuseGestureServer(testObj, 5000);
 
         assertEquals(testObj, server.getListener());
 
-        MuseGesturesImplementation testObj2 = new MuseGesturesImplementation();
+        MuseGesturesDefault testObj2 = new MuseGesturesDefault();
         server.setListener(testObj2);
         assertEquals(testObj2, server.getListener());
+    }
+
+    /**
+     * Runs tests of the onGesture method of the <code>MuseGestureServer</code>
+     * class.
+     */
+    @Test
+    public void onGestureTest() {
+        MuseGesturesImplementation testObj = new MuseGesturesImplementation();
+        MuseGestureServer server = new MuseGestureServer(testObj, 5000);
+
+        assertEquals(0, testObj.getBlinks());
+        assertEquals(0, testObj.getJawClenches());
+        assertEquals(0, testObj.getConcentrationZeros());
+        assertEquals(0, testObj.getConcentrationOnes());
+        assertEquals(0, testObj.getConcentrationTwos());
+        assertEquals(0, testObj.getConcentrationThrees());
+
+        server.onGesture(MuseGesture.BLINK);
+        assertEquals(1, testObj.getBlinks());
+        assertEquals(0, testObj.getJawClenches());
+
+        server.onGesture(MuseGesture.JAW_CLENCH);
+        assertEquals(1, testObj.getJawClenches());
+
+        server.onGesture(MuseGesture.CONCENTRATION_0);
+        assertEquals(1, testObj.getConcentrationZeros());
+
+        server.onGesture(MuseGesture.CONCENTRATION_1);
+        assertEquals(1, testObj.getConcentrationOnes());
+
+        server.onGesture(MuseGesture.CONCENTRATION_2);
+        assertEquals(1, testObj.getConcentrationTwos());
+
+        server.onGesture(MuseGesture.CONCENTRATION_3);
+        assertEquals(1, testObj.getConcentrationThrees());
+    }
+
+    /**
+     * Runs test of the oscEvent method of the <code>MuseGestureServer</code>
+     * class.
+     */
+    @Test
+    public void oscEventTest() {
+        MuseGesturesImplementation testObj = new MuseGesturesImplementation();
+        MuseGestureServer server = new MuseGestureServer(testObj, 5000);
+        OscMessage oscMessage = new OscMessage("/muse/elements/blink", 1);
+
+        server.oscEvent(oscMessage);
+        assertEquals(1, testObj.getBlinks());
     }
 }
