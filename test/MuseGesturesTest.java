@@ -35,6 +35,7 @@ public class MuseGesturesTest {
 
         museGestures.onBlink();
         museGestures.onJawClench();
+        museGestures.onConcentrationChange(1);
 
         assertTrue(true);
     }
