@@ -46,6 +46,13 @@ public class ConcentrationMachine {
         this.state = 0;
     }
 
+    /**
+     * Performs a move of the machine, and returns the found concentration
+     * gesture.
+     *
+     * @param value The concentration signal value to get the gesture of.
+     * @return The gesture recognized from the concentration signal value.
+     */
     public MuseGesture move(float value) {
         if (value > thresholds[0] && value < thresholds[1]) {
             if (this.state != 0) {
