@@ -1,4 +1,4 @@
-# Muse Gestures [![Travis CI Status](https://api.travis-ci.org/ExcaliburZero/muse-gestures.svg)](https://travis-ci.org/ExcaliburZero/muse-gestures) [![Coverage Status](https://coveralls.io/repos/github/ExcaliburZero/muse-gestures/badge.svg?branch=master)](https://coveralls.io/github/ExcaliburZero/muse-gestures?branch=master)
+# Muse Gestures [![Travis CI Status](https://api.travis-ci.org/SUNY-Oswego-MUSE-Project/muse-gestures.svg)](https://travis-ci.org/SUNY-Oswego-MUSE-Project/muse-gestures) [![Coverage Status](https://coveralls.io/repos/github/SUNY-Oswego-MUSE-Project/muse-gestures/badge.svg?branch=master)](https://coveralls.io/github/SUNY-Oswego-MUSE-Project/muse-gestures?branch=master)
 Muse Gestures is a Java library used for recognizing specific gestures using a Muse headband. It includes an interface and server class which allow you to create classes which will automatically have certain methods called when gestures are performed.
 
 ```
@@ -21,7 +21,7 @@ public class MuseCar implements MuseGestures {
 }
 ```
 
-For a complete list of the recognized gestures, see the documentation on [MuseGesture](https://excaliburzero.github.io/muse-gestures/musegestures/MuseGesture.html).
+For a complete list of the recognized gestures, see the documentation on [MuseGesture](https://suny-oswego-muse-project.github.io/muse-gestures/musegestures/MuseGesture.html).
 
 ## Documentation
 A copy of the documentation for Muse Gestures is available from the following page. It is manually updated, so it may occasionally be out of date. In order to make sure you have the most up to date version of the documentation you can [compile the documentation from source](#generating-documentation).
