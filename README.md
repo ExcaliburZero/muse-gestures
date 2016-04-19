@@ -23,6 +23,11 @@ public class MuseCar implements MuseGestures {
 
 For a complete list of the recognized gestures, see the documentation on [MuseGesture](https://suny-oswego-muse-project.github.io/muse-gestures/musegestures/MuseGesture.html).
 
+## Dependencies
+The Muse Gestures library requires the following libraries in order to be compiled and run:
+
+- [oscP5](https://github.com/sojamo/oscp5)
+
 ## Documentation
 A copy of the documentation for Muse Gestures is available from the following page. It is manually updated, so it may occasionally be out of date. In order to make sure you have the most up to date version of the documentation you can [compile the documentation from source](#generating-documentation).
 
