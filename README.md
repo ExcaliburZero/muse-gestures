@@ -23,12 +23,27 @@ public class MuseCar implements MuseGestures {
 
 For a complete list of the recognized gestures, see the documentation on [MuseGesture](https://suny-oswego-muse-project.github.io/muse-gestures/musegestures/MuseGesture.html).
 
-## Dependencies
+## Usage
+In order to be able to use the Muse Gestures library in a project, you can include the jar for the library in most build tools using [JitPack](https://jitpack.io/). Note that you will also need to include the oscP5 library as well, as it is a dependency for the Muse Gestures library.
+
+For example, to include the library in a Gradle project, you should have the following in your `build.gradle` file:
+
+```
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile "com.github.SUNY-Oswego-MUSE-Project:muse-gestures:0.1.0+", "com.github.sojamo:oscp5:v2.0.4"
+}
+```
+
+### Dependencies
 The Muse Gestures library requires the following libraries in order to be compiled and run:
 
 - [oscP5](https://github.com/sojamo/oscp5)
 
-## Documentation
+### Documentation
 A copy of the documentation for Muse Gestures is available from the following page. It is manually updated, so it may occasionally be out of date. In order to make sure you have the most up to date version of the documentation you can [compile the documentation from source](#generating-documentation).
 
 * https://suny-oswego-muse-project.github.io/muse-gestures/
